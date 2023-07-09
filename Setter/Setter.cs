@@ -6,13 +6,13 @@ using System.IO.Pipes;
 
 namespace Setter
 {
-    public partial class Form1 : Form
+    public partial class Setter : Form
     {
         Params param_first_ship;
         Params param_second_ship;
         StreamWriter fileStream_writer;
         StreamReader fileStream_reader;
-        public Form1()
+        public Setter()
         {
             InitializeComponent();
             param_first_ship = new Params();
@@ -23,7 +23,7 @@ namespace Setter
         {
             try
             {
-                fileStream_writer = new StreamWriter("Params.txt");
+                fileStream_writer = new StreamWriter("Param.txt");
 
                 param_first_ship.direction_change_random_time = double.Parse(this.direction_change__random_time_1.Text, CultureInfo.InvariantCulture);
                 param_first_ship.direction_cnange_random_percent = Convert.ToDouble(this.numericUpDown_direction_change_random_percent1.Value) / 100;
@@ -101,7 +101,7 @@ namespace Setter
         {
             try
             {
-                fileStream_reader = new StreamReader("Params.txt");
+                fileStream_reader = new StreamReader("Param.txt");
                 string line;
                 line = fileStream_reader.ReadLine();
                 direction_change__random_time_1.Text = line;
